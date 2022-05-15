@@ -8,9 +8,7 @@ import {
   Pressable,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import axios from 'axios';
 
@@ -57,10 +55,10 @@ const Home = ({navigation}) => {
             <Text style={styles.headerText}>Mission Ids :</Text>
             <View style={styles.listItemContainer}>
               {item.mission_id.length === 0 ? (
-                <Text> No Mission Id's</Text>
+                <Text style={styles.lightDarkText}> No Mission Id's</Text>
               ) : (
                 item.mission_id.map((item, index) => (
-                  <Text key={index}>
+                  <Text style={styles.lightDarkText} key={index}>
                     {'\u2B24'} {item}
                   </Text>
                 ))
@@ -69,17 +67,20 @@ const Home = ({navigation}) => {
           </View>
           <View style={styles.rowCont}>
             <Text style={styles.headerText}>Launch Year :</Text>
-            <Text> {item.launch_year}</Text>
+            <Text style={styles.lightDarkText}> {item.launch_year}</Text>
           </View>
 
           <View style={styles.rowCont}>
             <Text style={styles.headerText}>Successful Launch :</Text>
-            <Text> {item.launch_success ? 'True' : 'False'}</Text>
+            <Text style={styles.lightDarkText}>
+              {' '}
+              {item.launch_success ? 'True' : 'False'}
+            </Text>
           </View>
 
           <View style={styles.rowCont}>
             <Text style={styles.headerText}>Successful Landing :</Text>
-            <Text> {'Unknown'}</Text>
+            <Text style={styles.lightDarkText}> {'Unknown'}</Text>
           </View>
         </View>
       </Pressable>
@@ -89,9 +90,9 @@ const Home = ({navigation}) => {
   const handleEmptyList = () => (
     <View style={styles.emptyListContainer}>
       {isFetching ? (
-        <Text>Please Wait... </Text>
+        <Text style={styles.lightDarkText}>Please Wait... </Text>
       ) : (
-        <Text>No Records Found</Text>
+        <Text style={styles.lightDarkText}>No Records Found</Text>
       )}
     </View>
   );
@@ -101,7 +102,7 @@ const Home = ({navigation}) => {
       <Text style={StyleSheet.flatten([styles.headerText, styles.h1])}>
         Developed by
       </Text>
-      <Text>Manish Chandra</Text>
+      <Text style={styles.lightDarkText}>Manish Chandra</Text>
     </View>
   );
 
@@ -162,6 +163,9 @@ const styles = StyleSheet.create({
   },
   h1: {
     fontSize: 17,
+  },
+  lightDarkText: {
+    color: '#333',
   },
   colorText: {
     color: '#535579',
