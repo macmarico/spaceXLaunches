@@ -30,10 +30,10 @@ const Details = ({route}) => {
           <Text style={styles.headerText}>Mission Ids :</Text>
           <View style={styles.listItemContainer}>
             {item.mission_id.length === 0 ? (
-              <Text>No Mission Id's</Text>
+              <Text style={styles.lightDarkText}>No Mission Id's</Text>
             ) : (
               item.mission_id.map((item, index) => (
-                <Text key={index}>
+                <Text style={styles.lightDarkText} key={index}>
                   {'\u2B24'} {item}
                 </Text>
               ))
@@ -42,11 +42,11 @@ const Details = ({route}) => {
         </View>
         <View style={styles.rowCont}>
           <Text style={styles.headerText}>Launch Year :</Text>
-          <Text>{item.launch_year}</Text>
+          <Text style={styles.lightDarkText}>{item.launch_year}</Text>
         </View>
         <View style={styles.rowCont}>
           <Text style={styles.headerText}>Successful Launch :</Text>
-          <Text>{item.launch_success ? 'True' : 'False'}</Text>
+          <Text style={styles.lightDarkText}>{item.launch_success ? 'True' : 'False'}</Text>
         </View>
         <View style={styles.rowCont}>
           <Text style={styles.headerText}>Details :</Text>
@@ -98,7 +98,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 10,
   },
+  lightDarkText: {
+    color: '#333',
+  },
   detailsText: {
     flex: 1,
+    color: '#333',
   },
 });
